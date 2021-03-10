@@ -47,6 +47,7 @@
             this.SearchTxtBox.Name = "SearchTxtBox";
             this.SearchTxtBox.Size = new System.Drawing.Size(277, 20);
             this.SearchTxtBox.TabIndex = 0;
+            this.SearchTxtBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchTxtBox_KeyDown);
             // 
             // SearchBtn
             // 

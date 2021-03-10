@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Net.Http;
 using System.Text.Json;
 using Newtonsoft.Json;
+using Reminder.Classes;
 
 namespace Reminder
 {
@@ -19,22 +20,6 @@ namespace Reminder
 
         int currentPageIndex = 1;
         int totalPages = 1;
-
-        public class SearchResults
-        {
-            public List<Titles> Search { get; set; }
-            public string totalResults { get; set; }
-            public bool Response { get; set; }
-        }
-
-        public class Titles
-        {
-            public string Title { get; set; }
-            public string Year { get; set; }
-            public string imdbID { get; set; }
-            public string Type { get; set; }
-            public string Poster { get; set; }
-        }
 
         public Form1()
         {
@@ -68,25 +53,49 @@ namespace Reminder
 
         private void searchResults_ItemActivate(object sender, EventArgs e)
         {
+            string resultsString = "";
             HttpClient client = new HttpClient();
-            var json = client.GetStringAsync(CreateURL(false, searchResults.SelectedItems[0].SubItems[2].Text, 1));
-            var results = JsonConvert.DeserializeObject(json.Result);
-            MessageBox.Show(results.ToString());
+            foreach (ListViewItem item in ((ListView)sender).SelectedItems)
+            {
+                var json = client.GetStringAsync(CreateURL(false, ((Result)item.Tag).imdbID, 1));
+                var results = JsonConvert.DeserializeObject(json.Result);
+
+                resultsString += System.Environment.NewLine;
+                resultsString += System.Environment.NewLine;
+                resultsString += "-----------------NEXT MOVIE-----------------";
+                resultsString += System.Environment.NewLine;
+                resultsString += System.Environment.NewLine;
+
+                resultsString += results.ToString().Trim();
+            }
+            MessageBox.Show(resultsString);
         }
 
         private void SearchBtn_Click(object sender, EventArgs e)
         {
+            Search();
+        }
+
+        private void SearchTxtBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)Keys.Return)
+            {
+                Search();
+            }
+        }
+
+        private void Search()
+        {
             if (SearchTxtBox.Text != null)
             {
-
                 HttpClient client = new HttpClient();
                 var json = client.GetStringAsync(CreateURL(true, SearchTxtBox.Text, 1));
-                var results = JsonConvert.DeserializeObject<SearchResults>(json.Result);
+                var results = JsonConvert.DeserializeObject<Results>(json.Result);
 
                 totalPages = Convert.ToInt32(results.totalResults) / 10;
                 resultsTotalLabel.Text = currentPageIndex + "/" + totalPages + " Pages";
 
-                foreach (Titles result in results.Search)
+                foreach (Result result in results.Search)
                 {
                     ListViewItem item = new ListViewItem(result.Title);
                     item.SubItems.Add(result.Year);
@@ -94,6 +103,8 @@ namespace Reminder
                     item.SubItems.Add(result.Type);
                     item.SubItems.Add(result.Poster);
                     searchResults.Items.Add(item);
+
+                    item.Tag = result;
                 }
             }
         }
