@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Reminder.Classes
 {
-       public class Results
+       public class SearchResults
         {
-            public List<Result> Search { get; set; }
+            public List<SearchResult> Search { get; set; }
             public string totalResults { get; set; }
             public bool Response { get; set; }
         }
 
-        public class Result
+        public class SearchResult
         {
             public string Title { get; set; }
             public string Year { get; set; }

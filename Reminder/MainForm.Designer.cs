@@ -1,6 +1,6 @@
 ﻿namespace Reminder
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -39,19 +39,24 @@
             this.resultsTotalLabel = new System.Windows.Forms.Label();
             this.nextBtn = new System.Windows.Forms.Button();
             this.backBtn = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // SearchTxtBox
             // 
-            this.SearchTxtBox.Location = new System.Drawing.Point(12, 12);
+            this.SearchTxtBox.Location = new System.Drawing.Point(6, 6);
             this.SearchTxtBox.Name = "SearchTxtBox";
-            this.SearchTxtBox.Size = new System.Drawing.Size(277, 20);
+            this.SearchTxtBox.Size = new System.Drawing.Size(460, 20);
             this.SearchTxtBox.TabIndex = 0;
             this.SearchTxtBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchTxtBox_KeyDown);
             // 
             // SearchBtn
             // 
-            this.SearchBtn.Location = new System.Drawing.Point(295, 12);
+            this.SearchBtn.Location = new System.Drawing.Point(472, 6);
             this.SearchBtn.Name = "SearchBtn";
             this.SearchBtn.Size = new System.Drawing.Size(75, 20);
             this.SearchBtn.TabIndex = 1;
@@ -61,6 +66,9 @@
             // 
             // searchResults
             // 
+            this.searchResults.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.searchResults.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.TitleColumn,
             this.YearColumn,
@@ -69,9 +77,10 @@
             this.PosterColumn});
             this.searchResults.FullRowSelect = true;
             this.searchResults.HideSelection = false;
-            this.searchResults.Location = new System.Drawing.Point(12, 38);
+            this.searchResults.Location = new System.Drawing.Point(6, 32);
+            this.searchResults.MultiSelect = false;
             this.searchResults.Name = "searchResults";
-            this.searchResults.Size = new System.Drawing.Size(726, 241);
+            this.searchResults.Size = new System.Drawing.Size(1220, 593);
             this.searchResults.TabIndex = 2;
             this.searchResults.UseCompatibleStateImageBehavior = false;
             this.searchResults.View = System.Windows.Forms.View.Details;
@@ -80,31 +89,32 @@
             // TitleColumn
             // 
             this.TitleColumn.Text = "Title";
-            this.TitleColumn.Width = 213;
+            this.TitleColumn.Width = 339;
             // 
             // YearColumn
             // 
             this.YearColumn.Text = "Year";
-            this.YearColumn.Width = 70;
+            this.YearColumn.Width = 127;
             // 
             // IMDBColumn
             // 
             this.IMDBColumn.Text = "IMDb ID";
-            this.IMDBColumn.Width = 100;
+            this.IMDBColumn.Width = 132;
             // 
             // TypeColumn
             // 
             this.TypeColumn.Text = "Type";
-            this.TypeColumn.Width = 103;
+            this.TypeColumn.Width = 130;
             // 
             // PosterColumn
             // 
             this.PosterColumn.Text = "Poster URL";
-            this.PosterColumn.Width = 216;
+            this.PosterColumn.Width = 468;
             // 
             // resultsTotalLabel
             // 
-            this.resultsTotalLabel.Location = new System.Drawing.Point(376, 11);
+            this.resultsTotalLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.resultsTotalLabel.Location = new System.Drawing.Point(864, 5);
             this.resultsTotalLabel.Name = "resultsTotalLabel";
             this.resultsTotalLabel.Size = new System.Drawing.Size(200, 23);
             this.resultsTotalLabel.TabIndex = 3;
@@ -113,7 +123,8 @@
             // 
             // nextBtn
             // 
-            this.nextBtn.Location = new System.Drawing.Point(663, 12);
+            this.nextBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.nextBtn.Location = new System.Drawing.Point(1151, 6);
             this.nextBtn.Name = "nextBtn";
             this.nextBtn.Size = new System.Drawing.Size(75, 20);
             this.nextBtn.TabIndex = 4;
@@ -122,30 +133,68 @@
             // 
             // backBtn
             // 
+            this.backBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.backBtn.Enabled = false;
-            this.backBtn.Location = new System.Drawing.Point(582, 12);
+            this.backBtn.Location = new System.Drawing.Point(1070, 6);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(75, 20);
             this.backBtn.TabIndex = 5;
             this.backBtn.Text = "Back";
             this.backBtn.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // tabControl1
+            // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1240, 657);
+            this.tabControl1.TabIndex = 6;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.SearchTxtBox);
+            this.tabPage1.Controls.Add(this.SearchBtn);
+            this.tabPage1.Controls.Add(this.searchResults);
+            this.tabPage1.Controls.Add(this.resultsTotalLabel);
+            this.tabPage1.Controls.Add(this.nextBtn);
+            this.tabPage1.Controls.Add(this.backBtn);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1232, 631);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Search";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1232, 631);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(757, 295);
-            this.Controls.Add(this.backBtn);
-            this.Controls.Add(this.nextBtn);
-            this.Controls.Add(this.resultsTotalLabel);
-            this.Controls.Add(this.searchResults);
-            this.Controls.Add(this.SearchBtn);
-            this.Controls.Add(this.SearchTxtBox);
-            this.Name = "Form1";
+            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.tabControl1);
+            this.MinimumSize = new System.Drawing.Size(800, 400);
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reminder";
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -162,6 +211,9 @@
         private System.Windows.Forms.Label resultsTotalLabel;
         private System.Windows.Forms.Button nextBtn;
         private System.Windows.Forms.Button backBtn;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }
 

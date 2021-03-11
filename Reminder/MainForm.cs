@@ -14,14 +14,14 @@ using Reminder.Classes;
 
 namespace Reminder
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         public string apiURL = "http://www.omdbapi.com/?apikey=1574810&";
 
         int currentPageIndex = 1;
         int totalPages = 1;
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             ResetSearch();
@@ -57,7 +57,7 @@ namespace Reminder
             HttpClient client = new HttpClient();
             foreach (ListViewItem item in ((ListView)sender).SelectedItems)
             {
-                var json = client.GetStringAsync(CreateURL(false, ((Result)item.Tag).imdbID, 1));
+                var json = client.GetStringAsync(CreateURL(false, ((SearchResult)item.Tag).imdbID, 1));
                 var results = JsonConvert.DeserializeObject(json.Result);
 
                 resultsString += System.Environment.NewLine;
@@ -90,12 +90,12 @@ namespace Reminder
             {
                 HttpClient client = new HttpClient();
                 var json = client.GetStringAsync(CreateURL(true, SearchTxtBox.Text, 1));
-                var results = JsonConvert.DeserializeObject<Results>(json.Result);
+                var results = JsonConvert.DeserializeObject<SearchResults>(json.Result);
 
                 totalPages = Convert.ToInt32(results.totalResults) / 10;
                 resultsTotalLabel.Text = currentPageIndex + "/" + totalPages + " Pages";
 
-                foreach (Result result in results.Search)
+                foreach (SearchResult result in results.Search)
                 {
                     ListViewItem item = new ListViewItem(result.Title);
                     item.SubItems.Add(result.Year);
