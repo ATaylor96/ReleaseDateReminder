@@ -30,7 +30,7 @@
         {
             this.SearchTxtBox = new System.Windows.Forms.TextBox();
             this.SearchBtn = new System.Windows.Forms.Button();
-            this.searchResults = new System.Windows.Forms.ListView();
+            this.searchResultsListView = new System.Windows.Forms.ListView();
             this.TitleColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.YearColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.IMDBColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -42,8 +42,11 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // SearchTxtBox
@@ -64,27 +67,26 @@
             this.SearchBtn.UseVisualStyleBackColor = true;
             this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
             // 
-            // searchResults
+            // searchResultsListView
             // 
-            this.searchResults.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.searchResultsListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchResults.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.searchResultsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.TitleColumn,
             this.YearColumn,
             this.IMDBColumn,
             this.TypeColumn,
             this.PosterColumn});
-            this.searchResults.FullRowSelect = true;
-            this.searchResults.HideSelection = false;
-            this.searchResults.Location = new System.Drawing.Point(6, 32);
-            this.searchResults.MultiSelect = false;
-            this.searchResults.Name = "searchResults";
-            this.searchResults.Size = new System.Drawing.Size(1220, 593);
-            this.searchResults.TabIndex = 2;
-            this.searchResults.UseCompatibleStateImageBehavior = false;
-            this.searchResults.View = System.Windows.Forms.View.Details;
-            this.searchResults.ItemActivate += new System.EventHandler(this.searchResults_ItemActivate);
+            this.searchResultsListView.FullRowSelect = true;
+            this.searchResultsListView.HideSelection = false;
+            this.searchResultsListView.Location = new System.Drawing.Point(6, 32);
+            this.searchResultsListView.Name = "searchResultsListView";
+            this.searchResultsListView.Size = new System.Drawing.Size(1220, 593);
+            this.searchResultsListView.TabIndex = 2;
+            this.searchResultsListView.UseCompatibleStateImageBehavior = false;
+            this.searchResultsListView.View = System.Windows.Forms.View.Details;
+            this.searchResultsListView.ItemActivate += new System.EventHandler(this.searchResults_ItemActivate);
             // 
             // TitleColumn
             // 
@@ -130,6 +132,7 @@
             this.nextBtn.TabIndex = 4;
             this.nextBtn.Text = "Next";
             this.nextBtn.UseVisualStyleBackColor = true;
+            this.nextBtn.Click += new System.EventHandler(this.nextBtn_Click);
             // 
             // backBtn
             // 
@@ -141,6 +144,7 @@
             this.backBtn.TabIndex = 5;
             this.backBtn.Text = "Back";
             this.backBtn.UseVisualStyleBackColor = true;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // tabControl1
             // 
@@ -159,7 +163,7 @@
             // 
             this.tabPage1.Controls.Add(this.SearchTxtBox);
             this.tabPage1.Controls.Add(this.SearchBtn);
-            this.tabPage1.Controls.Add(this.searchResults);
+            this.tabPage1.Controls.Add(this.searchResultsListView);
             this.tabPage1.Controls.Add(this.resultsTotalLabel);
             this.tabPage1.Controls.Add(this.nextBtn);
             this.tabPage1.Controls.Add(this.backBtn);
@@ -173,6 +177,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.pictureBox1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -180,6 +185,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(170, 250);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // MainForm
             // 
@@ -194,6 +209,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -202,7 +219,7 @@
 
         private System.Windows.Forms.TextBox SearchTxtBox;
         private System.Windows.Forms.Button SearchBtn;
-        private System.Windows.Forms.ListView searchResults;
+        private System.Windows.Forms.ListView searchResultsListView;
         private System.Windows.Forms.ColumnHeader TitleColumn;
         private System.Windows.Forms.ColumnHeader TypeColumn;
         private System.Windows.Forms.ColumnHeader YearColumn;
@@ -214,6 +231,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

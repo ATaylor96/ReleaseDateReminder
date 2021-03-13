@@ -11,6 +11,9 @@ using System.Net.Http;
 using System.Text.Json;
 using Newtonsoft.Json;
 using Reminder.Classes;
+using System.Net;
+using System.IO;
+using System.Reflection;
 
 namespace Reminder
 {
@@ -21,22 +24,29 @@ namespace Reminder
         int currentPageIndex = 1;
         int totalPages = 1;
 
+        List<Control> detailControls = new List<Control>();
+
         public MainForm()
         {
             InitializeComponent();
+            foreach (Control c in tabPage2.Controls)
+            {
+                detailControls.Add(c);
+            }
+            tabControl1.TabPages.Remove(tabPage2);
             ResetSearch();
         }
 
         private void ResetSearch()
         {
-            searchResults.Items.Clear();
+            searchResultsListView.Items.Clear();
+            SearchTxtBox.Text = null;
             resultsTotalLabel.Text = null;
         }
 
         public string CreateURL(bool isSearch, string titleRequested, int pageNumber)
         {
             string url = apiURL;
-
             if (isSearch)
             {
                 url += "s=" + titleRequested + "&page=" + pageNumber;
@@ -53,60 +63,138 @@ namespace Reminder
 
         private void searchResults_ItemActivate(object sender, EventArgs e)
         {
-            string resultsString = "";
             HttpClient client = new HttpClient();
             foreach (ListViewItem item in ((ListView)sender).SelectedItems)
             {
                 var json = client.GetStringAsync(CreateURL(false, ((SearchResult)item.Tag).imdbID, 1));
-                var results = JsonConvert.DeserializeObject(json.Result);
-
-                resultsString += System.Environment.NewLine;
-                resultsString += System.Environment.NewLine;
-                resultsString += "-----------------NEXT MOVIE-----------------";
-                resultsString += System.Environment.NewLine;
-                resultsString += System.Environment.NewLine;
-
-                resultsString += results.ToString().Trim();
+                if (((SearchResult)item.Tag).Type == "movie")
+                {
+                    LoadMovieDetails(JsonConvert.DeserializeObject<Movie>(json.Result));
+                }
+                else if (((SearchResult)item.Tag).Type == "series")
+                {
+                    LoadShowDetails(JsonConvert.DeserializeObject<TVShow>(json.Result));
+                }
+                else { }
             }
-            MessageBox.Show(resultsString);
         }
 
         private void SearchBtn_Click(object sender, EventArgs e)
         {
-            Search();
+            Search(1);
+            currentPageIndex = 1;
         }
 
         private void SearchTxtBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyValue == (char)Keys.Return)
             {
-                Search();
+                Search(1);
+                currentPageIndex = 1;
+            }
+        }
+        
+        private void Search(int pageNum)
+        {
+            if (!String.IsNullOrWhiteSpace(SearchTxtBox.Text))
+            {
+                searchResultsListView.Items.Clear();
+
+                HttpClient client = new HttpClient();
+                var json = client.GetStringAsync(CreateURL(true, SearchTxtBox.Text, pageNum));
+                var results = JsonConvert.DeserializeObject<SearchResults>(json.Result);
+
+                totalPages = (int)Math.Ceiling(Convert.ToDouble(results.totalResults) / (double)10);
+                resultsTotalLabel.Text = currentPageIndex + "/" + totalPages.ToString() + " Pages";
+
+                if (Convert.ToInt32(results.totalResults) > 0)
+                {
+                    foreach (SearchResult result in results.Search)
+                    {
+                        ListViewItem item = new ListViewItem(result.Title);
+                        item.SubItems.Add(result.Year);
+                        item.SubItems.Add(result.imdbID);
+                        item.SubItems.Add(result.Type);
+                        item.SubItems.Add(result.Poster);
+                        searchResultsListView.Items.Add(item);
+                        item.Tag = result;
+                    }
+                }
+                else { ResetSearch(); }
+            }
+            else
+            {
+                MessageBox.Show("Search box is empty", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
-        private void Search()
+        private void LoadMovieDetails(Movie movie)
         {
-            if (SearchTxtBox.Text != null)
+            TabPage tab = new TabPage(movie.Title);
+            tabControl1.TabPages.Add(tab);
+            foreach (Control c in detailControls)
             {
-                HttpClient client = new HttpClient();
-                var json = client.GetStringAsync(CreateURL(true, SearchTxtBox.Text, 1));
-                var results = JsonConvert.DeserializeObject<SearchResults>(json.Result);
+                tab.Controls.Add(c);
+            }
+            //tab.Controls.AddRange(detailControls.ToArray());
+            tabControl1.SelectedTab = tab;
+        }
 
-                totalPages = Convert.ToInt32(results.totalResults) / 10;
-                resultsTotalLabel.Text = currentPageIndex + "/" + totalPages + " Pages";
+        private object CloneTab(object o)
+        {
+            Type t = o.GetType();
+            PropertyInfo[] properties = t.GetProperties();
 
-                foreach (SearchResult result in results.Search)
+            Object p = t.InvokeMember("", System.Reflection.BindingFlags.CreateInstance, null, o, null);
+
+            foreach (PropertyInfo pi in properties)
+            {
+                if (pi.CanWrite)
                 {
-                    ListViewItem item = new ListViewItem(result.Title);
-                    item.SubItems.Add(result.Year);
-                    item.SubItems.Add(result.imdbID);
-                    item.SubItems.Add(result.Type);
-                    item.SubItems.Add(result.Poster);
-                    searchResults.Items.Add(item);
-
-                    item.Tag = result;
+                    pi.SetValue(p, pi.GetValue(o, null), null);
                 }
             }
+
+            return p;
+        }
+
+        private void LoadShowDetails(TVShow show)
+        {
+            TabPage tab = new TabPage(show.Title);
+            tabControl1.TabPages.Add(tab);
+
+            foreach (Control c in detailControls)
+            {
+                tab.Controls.Add(c);
+            }
+            //tab.Controls.AddRange(detailControls.ToArray());
+            tabControl1.SelectedTab = tab;
+
+            //((PictureBox)tab.Controls.Find("pictureBox1", false)[0]).Load(show.Poster);
+        }
+
+        private void nextBtn_Click(object sender, EventArgs e)
+        {
+            if (currentPageIndex + 1 < totalPages)
+            {
+                currentPageIndex++;
+                backBtn.Enabled = true;
+                Search(currentPageIndex);
+                resultsTotalLabel.Text = currentPageIndex + "/" + totalPages + " Pages";
+            }
+            else { nextBtn.Enabled = false; }
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            if (currentPageIndex - 1 > 1)
+            {
+                currentPageIndex--;
+                nextBtn.Enabled = true;
+                Search(currentPageIndex);
+                resultsTotalLabel.Text = currentPageIndex + "/" + totalPages + " Pages";
+            }
+            else { backBtn.Enabled = false; }
         }
     }
 }

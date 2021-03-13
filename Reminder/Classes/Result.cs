@@ -23,12 +23,12 @@ namespace Reminder.Classes
         public string Awards { get; set; }
         public string Poster { get; set; }
         public List<Rating> Ratings { get; set; }
-        public int Metascore { get; set; }
+        public string Metascore { get; set; }
         public float imdbRating { get; set; }
-        public int imdbVotes { get; set; }
+        public string imdbVotes { get; set; }
         public string imdbID { get; set; }
         public string Type { get; set; }
-        public DateTime DVD { get; set; }
+        public string DVD { get; set; }
         public string BoxOffice { get; set; }
         public string Production { get; set; }
         public string Website { get; set; }
