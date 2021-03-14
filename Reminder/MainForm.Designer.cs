@@ -30,23 +30,23 @@
         {
             this.SearchTxtBox = new System.Windows.Forms.TextBox();
             this.SearchBtn = new System.Windows.Forms.Button();
-            this.searchResultsListView = new System.Windows.Forms.ListView();
-            this.TitleColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.YearColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.IMDBColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.TypeColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.PosterColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.resultsTotalLabel = new System.Windows.Forms.Label();
             this.nextBtn = new System.Windows.Forms.Button();
             this.backBtn = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.plotLabel = new System.Windows.Forms.Label();
+            this.ratingLabel = new System.Windows.Forms.Label();
+            this.runtimeLabel = new System.Windows.Forms.Label();
+            this.yearLabel = new System.Windows.Forms.Label();
+            this.titleLabel = new System.Windows.Forms.Label();
+            this.posterPictureBox = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.posterPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // SearchTxtBox
@@ -66,52 +66,6 @@
             this.SearchBtn.Text = "Search";
             this.SearchBtn.UseVisualStyleBackColor = true;
             this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
-            // 
-            // searchResultsListView
-            // 
-            this.searchResultsListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchResultsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.TitleColumn,
-            this.YearColumn,
-            this.IMDBColumn,
-            this.TypeColumn,
-            this.PosterColumn});
-            this.searchResultsListView.FullRowSelect = true;
-            this.searchResultsListView.HideSelection = false;
-            this.searchResultsListView.Location = new System.Drawing.Point(6, 32);
-            this.searchResultsListView.Name = "searchResultsListView";
-            this.searchResultsListView.Size = new System.Drawing.Size(1220, 593);
-            this.searchResultsListView.TabIndex = 2;
-            this.searchResultsListView.UseCompatibleStateImageBehavior = false;
-            this.searchResultsListView.View = System.Windows.Forms.View.Details;
-            this.searchResultsListView.ItemActivate += new System.EventHandler(this.searchResults_ItemActivate);
-            // 
-            // TitleColumn
-            // 
-            this.TitleColumn.Text = "Title";
-            this.TitleColumn.Width = 339;
-            // 
-            // YearColumn
-            // 
-            this.YearColumn.Text = "Year";
-            this.YearColumn.Width = 127;
-            // 
-            // IMDBColumn
-            // 
-            this.IMDBColumn.Text = "IMDb ID";
-            this.IMDBColumn.Width = 132;
-            // 
-            // TypeColumn
-            // 
-            this.TypeColumn.Text = "Type";
-            this.TypeColumn.Width = 130;
-            // 
-            // PosterColumn
-            // 
-            this.PosterColumn.Text = "Poster URL";
-            this.PosterColumn.Width = 468;
             // 
             // resultsTotalLabel
             // 
@@ -163,10 +117,10 @@
             // 
             this.tabPage1.Controls.Add(this.SearchTxtBox);
             this.tabPage1.Controls.Add(this.SearchBtn);
-            this.tabPage1.Controls.Add(this.searchResultsListView);
             this.tabPage1.Controls.Add(this.resultsTotalLabel);
             this.tabPage1.Controls.Add(this.nextBtn);
             this.tabPage1.Controls.Add(this.backBtn);
+            this.tabPage1.Controls.Add(this.flowLayoutPanel1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -175,9 +129,25 @@
             this.tabPage1.Text = "Search";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(6, 32);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1220, 593);
+            this.flowLayoutPanel1.TabIndex = 6;
+            // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.pictureBox1);
+            this.tabPage2.Controls.Add(this.plotLabel);
+            this.tabPage2.Controls.Add(this.ratingLabel);
+            this.tabPage2.Controls.Add(this.runtimeLabel);
+            this.tabPage2.Controls.Add(this.yearLabel);
+            this.tabPage2.Controls.Add(this.titleLabel);
+            this.tabPage2.Controls.Add(this.posterPictureBox);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -186,15 +156,64 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
+            // plotLabel
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(170, 250);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.plotLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.plotLabel.Location = new System.Drawing.Point(240, 189);
+            this.plotLabel.Name = "plotLabel";
+            this.plotLabel.Size = new System.Drawing.Size(437, 94);
+            this.plotLabel.TabIndex = 5;
+            this.plotLabel.Text = "label1";
+            // 
+            // ratingLabel
+            // 
+            this.ratingLabel.AutoSize = true;
+            this.ratingLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ratingLabel.Location = new System.Drawing.Point(329, 100);
+            this.ratingLabel.Name = "ratingLabel";
+            this.ratingLabel.Size = new System.Drawing.Size(22, 13);
+            this.ratingLabel.TabIndex = 4;
+            this.ratingLabel.Text = "PG";
+            // 
+            // runtimeLabel
+            // 
+            this.runtimeLabel.AutoSize = true;
+            this.runtimeLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.runtimeLabel.Location = new System.Drawing.Point(240, 100);
+            this.runtimeLabel.Name = "runtimeLabel";
+            this.runtimeLabel.Size = new System.Drawing.Size(47, 13);
+            this.runtimeLabel.TabIndex = 3;
+            this.runtimeLabel.Text = "100 min";
+            // 
+            // yearLabel
+            // 
+            this.yearLabel.AutoSize = true;
+            this.yearLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.yearLabel.Location = new System.Drawing.Point(240, 74);
+            this.yearLabel.Name = "yearLabel";
+            this.yearLabel.Size = new System.Drawing.Size(34, 17);
+            this.yearLabel.TabIndex = 2;
+            this.yearLabel.Text = "2021";
+            // 
+            // titleLabel
+            // 
+            this.titleLabel.AutoSize = true;
+            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLabel.Location = new System.Drawing.Point(237, 33);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(65, 32);
+            this.titleLabel.TabIndex = 1;
+            this.titleLabel.Text = "Title";
+            // 
+            // posterPictureBox
+            // 
+            this.posterPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.posterPictureBox.Location = new System.Drawing.Point(36, 33);
+            this.posterPictureBox.Name = "posterPictureBox";
+            this.posterPictureBox.Size = new System.Drawing.Size(170, 250);
+            this.posterPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.posterPictureBox.TabIndex = 0;
+            this.posterPictureBox.TabStop = false;
             // 
             // MainForm
             // 
@@ -210,7 +229,8 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.posterPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -219,19 +239,19 @@
 
         private System.Windows.Forms.TextBox SearchTxtBox;
         private System.Windows.Forms.Button SearchBtn;
-        private System.Windows.Forms.ListView searchResultsListView;
-        private System.Windows.Forms.ColumnHeader TitleColumn;
-        private System.Windows.Forms.ColumnHeader TypeColumn;
-        private System.Windows.Forms.ColumnHeader YearColumn;
-        private System.Windows.Forms.ColumnHeader IMDBColumn;
-        private System.Windows.Forms.ColumnHeader PosterColumn;
         private System.Windows.Forms.Label resultsTotalLabel;
         private System.Windows.Forms.Button nextBtn;
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox posterPictureBox;
+        private System.Windows.Forms.Label titleLabel;
+        private System.Windows.Forms.Label ratingLabel;
+        private System.Windows.Forms.Label runtimeLabel;
+        private System.Windows.Forms.Label yearLabel;
+        private System.Windows.Forms.Label plotLabel;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
 

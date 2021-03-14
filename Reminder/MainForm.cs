@@ -24,24 +24,18 @@ namespace Reminder
         int currentPageIndex = 1;
         int totalPages = 1;
 
-        List<Control> detailControls = new List<Control>();
-
         public MainForm()
         {
             InitializeComponent();
-            foreach (Control c in tabPage2.Controls)
-            {
-                detailControls.Add(c);
-            }
-            tabControl1.TabPages.Remove(tabPage2);
             ResetSearch();
         }
 
         private void ResetSearch()
         {
-            searchResultsListView.Items.Clear();
+            flowLayoutPanel1.Controls.Clear();
             SearchTxtBox.Text = null;
             resultsTotalLabel.Text = null;
+
         }
 
         public string CreateURL(bool isSearch, string titleRequested, int pageNumber)
@@ -59,24 +53,6 @@ namespace Reminder
             url += "&r=json";
 
             return url;
-        }
-
-        private void searchResults_ItemActivate(object sender, EventArgs e)
-        {
-            HttpClient client = new HttpClient();
-            foreach (ListViewItem item in ((ListView)sender).SelectedItems)
-            {
-                var json = client.GetStringAsync(CreateURL(false, ((SearchResult)item.Tag).imdbID, 1));
-                if (((SearchResult)item.Tag).Type == "movie")
-                {
-                    LoadMovieDetails(JsonConvert.DeserializeObject<Movie>(json.Result));
-                }
-                else if (((SearchResult)item.Tag).Type == "series")
-                {
-                    LoadShowDetails(JsonConvert.DeserializeObject<TVShow>(json.Result));
-                }
-                else { }
-            }
         }
 
         private void SearchBtn_Click(object sender, EventArgs e)
@@ -98,7 +74,7 @@ namespace Reminder
         {
             if (!String.IsNullOrWhiteSpace(SearchTxtBox.Text))
             {
-                searchResultsListView.Items.Clear();
+                flowLayoutPanel1.Controls.Clear();
 
                 HttpClient client = new HttpClient();
                 var json = client.GetStringAsync(CreateURL(true, SearchTxtBox.Text, pageNum));
@@ -111,13 +87,9 @@ namespace Reminder
                 {
                     foreach (SearchResult result in results.Search)
                     {
-                        ListViewItem item = new ListViewItem(result.Title);
-                        item.SubItems.Add(result.Year);
-                        item.SubItems.Add(result.imdbID);
-                        item.SubItems.Add(result.Type);
-                        item.SubItems.Add(result.Poster);
-                        searchResultsListView.Items.Add(item);
-                        item.Tag = result;
+                        TitlePanel titlePanel = new TitlePanel(result, this);
+                        titlePanel.Tag = result;
+                        flowLayoutPanel1.Controls.Add(titlePanel);
                     }
                 }
                 else { ResetSearch(); }
@@ -128,73 +100,50 @@ namespace Reminder
             }
         }
 
-        private void LoadMovieDetails(Movie movie)
+        public void LoadDetails(SearchResult result)
         {
-            TabPage tab = new TabPage(movie.Title);
-            tabControl1.TabPages.Add(tab);
-            foreach (Control c in detailControls)
+            HttpClient client = new HttpClient();
+            var json = client.GetStringAsync(CreateURL(false, result.imdbID, 1));
+            Movie movie = JsonConvert.DeserializeObject<Movie>(json.Result);
+            if (movie != null)
             {
-                tab.Controls.Add(c);
+                tabControl1.SelectedTab = tabPage2;
+                tabPage2.Text = movie.Title;
+                titleLabel.Text = movie.Title;
+                yearLabel.Text = movie.Year;
+                runtimeLabel.Text = movie.Runtime;
+                ratingLabel.Text = movie.Year;
+                plotLabel.Text = movie.Plot;
             }
-            //tab.Controls.AddRange(detailControls.ToArray());
-            tabControl1.SelectedTab = tab;
-        }
-
-        private object CloneTab(object o)
-        {
-            Type t = o.GetType();
-            PropertyInfo[] properties = t.GetProperties();
-
-            Object p = t.InvokeMember("", System.Reflection.BindingFlags.CreateInstance, null, o, null);
-
-            foreach (PropertyInfo pi in properties)
-            {
-                if (pi.CanWrite)
-                {
-                    pi.SetValue(p, pi.GetValue(o, null), null);
-                }
-            }
-
-            return p;
-        }
-
-        private void LoadShowDetails(TVShow show)
-        {
-            TabPage tab = new TabPage(show.Title);
-            tabControl1.TabPages.Add(tab);
-
-            foreach (Control c in detailControls)
-            {
-                tab.Controls.Add(c);
-            }
-            //tab.Controls.AddRange(detailControls.ToArray());
-            tabControl1.SelectedTab = tab;
-
-            //((PictureBox)tab.Controls.Find("pictureBox1", false)[0]).Load(show.Poster);
+            else { MessageBox.Show("Could not received movie details."); }
         }
 
         private void nextBtn_Click(object sender, EventArgs e)
         {
-            if (currentPageIndex + 1 < totalPages)
+            if (currentPageIndex < totalPages)
             {
                 currentPageIndex++;
-                backBtn.Enabled = true;
-                Search(currentPageIndex);
                 resultsTotalLabel.Text = currentPageIndex + "/" + totalPages + " Pages";
+                Search(currentPageIndex);
+                if (currentPageIndex == totalPages) { ((Button)sender).Enabled = false; }
+                backBtn.Enabled = true;
             }
-            else { nextBtn.Enabled = false; }
+            else { MessageBox.Show("No more pages"); }
         }
 
         private void backBtn_Click(object sender, EventArgs e)
         {
-            if (currentPageIndex - 1 > 1)
+            if (currentPageIndex > 1)
             {
                 currentPageIndex--;
-                nextBtn.Enabled = true;
-                Search(currentPageIndex);
                 resultsTotalLabel.Text = currentPageIndex + "/" + totalPages + " Pages";
+                Search(currentPageIndex);
+                if (currentPageIndex == 1) { ((Button)sender).Enabled = false; }
+                nextBtn.Enabled = true;
             }
-            else { backBtn.Enabled = false; }
+            else { MessageBox.Show("No more pages"); }
         }
+
+
     }
 }

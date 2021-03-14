@@ -63,3 +63,4 @@ F:\Projects\Repo\Reminder\Reminder\obj\Debug\Reminder.csproj.CopyComplete
 F:\Projects\Repo\Reminder\Reminder\obj\Debug\Reminder.exe
 F:\Projects\Repo\Reminder\Reminder\obj\Debug\Reminder.pdb
 F:\Projects\Repo\Reminder\Reminder\obj\Debug\Reminder.MainForm.resources
+F:\Projects\Repo\Reminder\Reminder\obj\Debug\Reminder.TitlePanel.resources
