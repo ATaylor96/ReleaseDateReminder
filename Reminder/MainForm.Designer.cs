@@ -36,17 +36,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.plotLabel = new System.Windows.Forms.Label();
-            this.ratingLabel = new System.Windows.Forms.Label();
-            this.runtimeLabel = new System.Windows.Forms.Label();
-            this.yearLabel = new System.Windows.Forms.Label();
-            this.titleLabel = new System.Windows.Forms.Label();
-            this.posterPictureBox = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.posterPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // SearchTxtBox
@@ -106,7 +97,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -140,81 +130,6 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1220, 593);
             this.flowLayoutPanel1.TabIndex = 6;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.plotLabel);
-            this.tabPage2.Controls.Add(this.ratingLabel);
-            this.tabPage2.Controls.Add(this.runtimeLabel);
-            this.tabPage2.Controls.Add(this.yearLabel);
-            this.tabPage2.Controls.Add(this.titleLabel);
-            this.tabPage2.Controls.Add(this.posterPictureBox);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1232, 631);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // plotLabel
-            // 
-            this.plotLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.plotLabel.Location = new System.Drawing.Point(240, 189);
-            this.plotLabel.Name = "plotLabel";
-            this.plotLabel.Size = new System.Drawing.Size(437, 94);
-            this.plotLabel.TabIndex = 5;
-            this.plotLabel.Text = "label1";
-            // 
-            // ratingLabel
-            // 
-            this.ratingLabel.AutoSize = true;
-            this.ratingLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ratingLabel.Location = new System.Drawing.Point(329, 100);
-            this.ratingLabel.Name = "ratingLabel";
-            this.ratingLabel.Size = new System.Drawing.Size(22, 13);
-            this.ratingLabel.TabIndex = 4;
-            this.ratingLabel.Text = "PG";
-            // 
-            // runtimeLabel
-            // 
-            this.runtimeLabel.AutoSize = true;
-            this.runtimeLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.runtimeLabel.Location = new System.Drawing.Point(240, 100);
-            this.runtimeLabel.Name = "runtimeLabel";
-            this.runtimeLabel.Size = new System.Drawing.Size(47, 13);
-            this.runtimeLabel.TabIndex = 3;
-            this.runtimeLabel.Text = "100 min";
-            // 
-            // yearLabel
-            // 
-            this.yearLabel.AutoSize = true;
-            this.yearLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.yearLabel.Location = new System.Drawing.Point(240, 74);
-            this.yearLabel.Name = "yearLabel";
-            this.yearLabel.Size = new System.Drawing.Size(34, 17);
-            this.yearLabel.TabIndex = 2;
-            this.yearLabel.Text = "2021";
-            // 
-            // titleLabel
-            // 
-            this.titleLabel.AutoSize = true;
-            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(237, 33);
-            this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(65, 32);
-            this.titleLabel.TabIndex = 1;
-            this.titleLabel.Text = "Title";
-            // 
-            // posterPictureBox
-            // 
-            this.posterPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.posterPictureBox.Location = new System.Drawing.Point(36, 33);
-            this.posterPictureBox.Name = "posterPictureBox";
-            this.posterPictureBox.Size = new System.Drawing.Size(170, 250);
-            this.posterPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.posterPictureBox.TabIndex = 0;
-            this.posterPictureBox.TabStop = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -228,9 +143,6 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.posterPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -244,13 +156,6 @@
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.PictureBox posterPictureBox;
-        private System.Windows.Forms.Label titleLabel;
-        private System.Windows.Forms.Label ratingLabel;
-        private System.Windows.Forms.Label runtimeLabel;
-        private System.Windows.Forms.Label yearLabel;
-        private System.Windows.Forms.Label plotLabel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

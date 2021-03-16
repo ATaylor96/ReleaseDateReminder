@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Reminder.Classes;
 
@@ -16,12 +10,16 @@ namespace Reminder
         SearchResult searchResult;
         MainForm main;
 
-        public TitlePanel(SearchResult result, MainForm mainForm)
+        public TitlePanel(MainForm mainForm, SearchResult result)
         {
             InitializeComponent();
             main = mainForm;
             searchResult = result;
-            pictureBox1.Load(result.Poster);
+            try
+            {
+                pictureBox1.Load(result.Poster);
+            }
+            catch { };
             label1.Text = result.Title;
             label2.Text = result.Year;
         }
@@ -29,6 +27,16 @@ namespace Reminder
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             main.LoadDetails(searchResult);
+        }
+
+        private void TitlePanel_MouseEnter(object sender, EventArgs e)
+        {
+            label1.Font = new Font(label1.Font, FontStyle.Underline | FontStyle.Bold);
+        }
+
+        private void TitlePanel_MouseLeave(object sender, EventArgs e)
+        {
+            label1.Font = new Font(label1.Font, FontStyle.Bold);
         }
     }
 }

@@ -1,19 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Http;
-using System.Text.Json;
 using Newtonsoft.Json;
 using Reminder.Classes;
-using System.Net;
-using System.IO;
-using System.Reflection;
 
 namespace Reminder
 {
@@ -87,8 +76,7 @@ namespace Reminder
                 {
                     foreach (SearchResult result in results.Search)
                     {
-                        TitlePanel titlePanel = new TitlePanel(result, this);
-                        titlePanel.Tag = result;
+                        TitlePanel titlePanel = new TitlePanel(this, result) { Tag = result };
                         flowLayoutPanel1.Controls.Add(titlePanel);
                     }
                 }
@@ -107,13 +95,12 @@ namespace Reminder
             Movie movie = JsonConvert.DeserializeObject<Movie>(json.Result);
             if (movie != null)
             {
-                tabControl1.SelectedTab = tabPage2;
-                tabPage2.Text = movie.Title;
-                titleLabel.Text = movie.Title;
-                yearLabel.Text = movie.Year;
-                runtimeLabel.Text = movie.Runtime;
-                ratingLabel.Text = movie.Year;
-                plotLabel.Text = movie.Plot;
+                TabPage tab = new TabPage(movie.Title) { Tag = movie };
+                MovieDetailsPanel panel = new MovieDetailsPanel(this, movie) { Tag = tab };
+                panel.Dock = DockStyle.Fill;
+                tab.Controls.Add(panel);
+                tabControl1.TabPages.Add(tab);
+                tabControl1.SelectedTab = tab;
             }
             else { MessageBox.Show("Could not received movie details."); }
         }
@@ -143,7 +130,5 @@ namespace Reminder
             }
             else { MessageBox.Show("No more pages"); }
         }
-
-
     }
 }

@@ -44,6 +44,9 @@ namespace Reminder
             this.label2.Size = new System.Drawing.Size(170, 20);
             this.label2.TabIndex = 5;
             this.label2.Text = "2021";
+            this.label2.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.label2.MouseEnter += new System.EventHandler(this.TitlePanel_MouseEnter);
+            this.label2.MouseLeave += new System.EventHandler(this.TitlePanel_MouseLeave);
             // 
             // label1
             // 
@@ -53,6 +56,9 @@ namespace Reminder
             this.label1.Size = new System.Drawing.Size(170, 23);
             this.label1.TabIndex = 4;
             this.label1.Text = "Title";
+            this.label1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.label1.MouseEnter += new System.EventHandler(this.TitlePanel_MouseEnter);
+            this.label1.MouseLeave += new System.EventHandler(this.TitlePanel_MouseLeave);
             // 
             // pictureBox1
             // 
@@ -64,6 +70,8 @@ namespace Reminder
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.MouseEnter += new System.EventHandler(this.TitlePanel_MouseEnter);
+            this.pictureBox1.MouseLeave += new System.EventHandler(this.TitlePanel_MouseLeave);
             // 
             // TitlePanel
             // 
@@ -75,6 +83,8 @@ namespace Reminder
             this.Controls.Add(this.pictureBox1);
             this.Name = "TitlePanel";
             this.Size = new System.Drawing.Size(176, 303);
+            this.MouseEnter += new System.EventHandler(this.TitlePanel_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.TitlePanel_MouseLeave);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
