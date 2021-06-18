@@ -1,0 +1,11 @@
+F:\Projects\Repo\Reminder\ReminderUI\bin\Debug\ReminderUI.exe.config
+F:\Projects\Repo\Reminder\ReminderUI\bin\Debug\ReminderUI.exe
+F:\Projects\Repo\Reminder\ReminderUI\bin\Debug\ReminderUI.pdb
+F:\Projects\Repo\Reminder\ReminderUI\obj\Debug\ReminderUI.csprojAssemblyReference.cache
+F:\Projects\Repo\Reminder\ReminderUI\obj\Debug\ReminderUI.Properties.Resources.resources
+F:\Projects\Repo\Reminder\ReminderUI\obj\Debug\ReminderUI.csproj.GenerateResource.cache
+F:\Projects\Repo\Reminder\ReminderUI\obj\Debug\ReminderUI.csproj.CoreCompileInputs.cache
+F:\Projects\Repo\Reminder\ReminderUI\obj\Debug\ReminderUI.exe
+F:\Projects\Repo\Reminder\ReminderUI\obj\Debug\ReminderUI.pdb
+F:\Projects\Repo\Reminder\ReminderUI\obj\Debug\ReminderUI.MainForm.resources
+F:\Projects\Repo\Reminder\ReminderUI\obj\Debug\ReminderUI.SearchForm.resources

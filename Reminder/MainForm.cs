@@ -92,6 +92,7 @@ namespace Reminder
         {
             HttpClient client = new HttpClient();
             var json = client.GetStringAsync(CreateURL(false, result.imdbID, 1));
+            Clipboard.SetText(CreateURL(false, result.imdbID, 1));
             Movie movie = JsonConvert.DeserializeObject<Movie>(json.Result);
             if (movie != null)
             {
