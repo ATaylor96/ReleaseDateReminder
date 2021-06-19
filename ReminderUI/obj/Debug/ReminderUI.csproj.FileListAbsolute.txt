@@ -9,3 +9,6 @@ F:\Projects\Repo\Reminder\ReminderUI\obj\Debug\ReminderUI.exe
 F:\Projects\Repo\Reminder\ReminderUI\obj\Debug\ReminderUI.pdb
 F:\Projects\Repo\Reminder\ReminderUI\obj\Debug\ReminderUI.MainForm.resources
 F:\Projects\Repo\Reminder\ReminderUI\obj\Debug\ReminderUI.SearchForm.resources
+F:\Projects\Repo\Reminder\ReminderUI\obj\Debug\ReminderUI.Controls.MoviesControl.resources
+F:\Projects\Repo\Reminder\ReminderUI\bin\Debug\System.ComponentModel.Annotations.dll
+F:\Projects\Repo\Reminder\ReminderUI\obj\Debug\ReminderUI.csproj.CopyComplete
