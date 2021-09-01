@@ -3,12 +3,16 @@ using System.Windows.Forms;
 using System.Net.Http;
 using Newtonsoft.Json;
 using Reminder.Classes;
+using System.Threading.Tasks;
 
 namespace Reminder
 {
     public partial class MainForm : Form
     {
+        // rawg api key - e7cb6ac232454c8c9b5211b61d6a1cc0
+
         public string apiURL = "http://www.omdbapi.com/?apikey=1574810&";
+        public string igdbApiURL = "https://id.twitch.tv/oauth2/token?client_id=k4t0wyx0m80xtmdokvzcatextvrrfe&client_secret=m9hzzyf551h0w51wukahw91jm5j19t&grant_type=client_credentials";
 
         int currentPageIndex = 1;
         int totalPages = 1;
@@ -130,6 +134,39 @@ namespace Reminder
                 nextBtn.Enabled = true;
             }
             else { MessageBox.Show("No more pages"); }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            textBox2.Text = "";
+            var results = GetGameList(textBox1.Text, 1);
+            foreach (GameSearchResult result in results.results)
+            {
+                textBox2.Text += result.name + ": " + result.id.ToString() + Environment.NewLine;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            textBox2.Text = "";
+            var results = GetGameDetails(textBox1.Text, 1);
+            textBox2.Text = results;
+        }
+
+        private GameSearchResults GetGameList(string searchTerm, int page)
+        {
+            HttpClient client = new HttpClient();
+            var json = client.GetStringAsync("https://api.rawg.io/api/games?key=e7cb6ac232454c8c9b5211b61d6a1cc0" + "&page=" + page + "&search=" + searchTerm);
+            var results = JsonConvert.DeserializeObject<GameSearchResults>(json.Result);
+            return results;
+        }
+
+        private string GetGameDetails(string searchTerm, int page)
+        {
+            HttpClient client = new HttpClient();
+            var json = client.GetStringAsync("https://api.rawg.io/api/games/" + searchTerm + "?key=e7cb6ac232454c8c9b5211b61d6a1cc0");
+            var results = JsonConvert.DeserializeObject(json.Result).ToString();
+            return results;
         }
     }
 }

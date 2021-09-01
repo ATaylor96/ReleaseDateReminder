@@ -32,6 +32,7 @@ namespace ReminderUI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.navigationPanel = new System.Windows.Forms.Panel();
             this.settingsBtn = new System.Windows.Forms.Button();
+            this.myListBtn = new System.Windows.Forms.Button();
             this.calendarBtn = new System.Windows.Forms.Button();
             this.gamesBtn = new System.Windows.Forms.Button();
             this.televisionBtn = new System.Windows.Forms.Button();
@@ -40,11 +41,11 @@ namespace ReminderUI
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.contentPanel = new System.Windows.Forms.Panel();
-            this.moviesControl1 = new ReminderUI.Controls.MoviesControl();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.moviesControl1 = new ReminderUI.Controls.MovieControl();
             this.navigationPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.mainPanel.SuspendLayout();
@@ -56,6 +57,7 @@ namespace ReminderUI
             // 
             this.navigationPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(50)))));
             this.navigationPanel.Controls.Add(this.settingsBtn);
+            this.navigationPanel.Controls.Add(this.myListBtn);
             this.navigationPanel.Controls.Add(this.calendarBtn);
             this.navigationPanel.Controls.Add(this.gamesBtn);
             this.navigationPanel.Controls.Add(this.televisionBtn);
@@ -81,7 +83,7 @@ namespace ReminderUI
             this.settingsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(167)))), ((int)(((byte)(169)))));
             this.settingsBtn.Image = global::ReminderUI.Properties.Resources.outline_settings_black_24dp1;
             this.settingsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.settingsBtn.Location = new System.Drawing.Point(12, 263);
+            this.settingsBtn.Location = new System.Drawing.Point(12, 309);
             this.settingsBtn.Name = "settingsBtn";
             this.settingsBtn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.settingsBtn.Size = new System.Drawing.Size(218, 40);
@@ -90,6 +92,29 @@ namespace ReminderUI
             this.settingsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.settingsBtn.UseVisualStyleBackColor = false;
             this.settingsBtn.Click += new System.EventHandler(this.settingsBtn_Click);
+            // 
+            // myListBtn
+            // 
+            this.myListBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(37)))), ((int)(((byte)(42)))));
+            this.myListBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.myListBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(177)))), ((int)(((byte)(191)))));
+            this.myListBtn.FlatAppearance.BorderSize = 0;
+            this.myListBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            this.myListBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            this.myListBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.myListBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.myListBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(167)))), ((int)(((byte)(169)))));
+            this.myListBtn.Image = global::ReminderUI.Properties.Resources.outline_format_list_bulleted_white_24dp;
+            this.myListBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.myListBtn.Location = new System.Drawing.Point(12, 217);
+            this.myListBtn.Name = "myListBtn";
+            this.myListBtn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.myListBtn.Size = new System.Drawing.Size(218, 40);
+            this.myListBtn.TabIndex = 18;
+            this.myListBtn.Text = "          My List";
+            this.myListBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.myListBtn.UseVisualStyleBackColor = false;
+            this.myListBtn.Click += new System.EventHandler(this.myListBtn_Click);
             // 
             // calendarBtn
             // 
@@ -104,7 +129,7 @@ namespace ReminderUI
             this.calendarBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(167)))), ((int)(((byte)(169)))));
             this.calendarBtn.Image = global::ReminderUI.Properties.Resources.outline_today_black_24dp1;
             this.calendarBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.calendarBtn.Location = new System.Drawing.Point(12, 217);
+            this.calendarBtn.Location = new System.Drawing.Point(12, 263);
             this.calendarBtn.Name = "calendarBtn";
             this.calendarBtn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.calendarBtn.Size = new System.Drawing.Size(218, 40);
@@ -166,8 +191,8 @@ namespace ReminderUI
             this.moviesBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.moviesBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(177)))), ((int)(((byte)(191)))));
             this.moviesBtn.FlatAppearance.BorderSize = 0;
-            this.moviesBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.moviesBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            this.moviesBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(154)))), ((int)(((byte)(248)))));
+            this.moviesBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(154)))), ((int)(((byte)(248)))));
             this.moviesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.moviesBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.moviesBtn.ForeColor = System.Drawing.Color.White;
@@ -233,17 +258,6 @@ namespace ReminderUI
             this.contentPanel.Name = "contentPanel";
             this.contentPanel.Size = new System.Drawing.Size(1100, 706);
             this.contentPanel.TabIndex = 22;
-            // 
-            // moviesControl1
-            // 
-            this.moviesControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.moviesControl1.BackColor = System.Drawing.Color.White;
-            this.moviesControl1.Location = new System.Drawing.Point(0, 0);
-            this.moviesControl1.Name = "moviesControl1";
-            this.moviesControl1.Size = new System.Drawing.Size(1100, 706);
-            this.moviesControl1.TabIndex = 0;
             // 
             // panel1
             // 
@@ -319,6 +333,17 @@ namespace ReminderUI
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // moviesControl1
+            // 
+            this.moviesControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.moviesControl1.BackColor = System.Drawing.Color.White;
+            this.moviesControl1.Location = new System.Drawing.Point(0, 0);
+            this.moviesControl1.Name = "moviesControl1";
+            this.moviesControl1.Size = new System.Drawing.Size(1100, 706);
+            this.moviesControl1.TabIndex = 0;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
@@ -360,7 +385,8 @@ namespace ReminderUI
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel contentPanel;
-        private Controls.MoviesControl moviesControl1;
+        private Controls.MovieControl moviesControl1;
+        private System.Windows.Forms.Button myListBtn;
     }
 }
 

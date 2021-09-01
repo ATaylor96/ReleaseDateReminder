@@ -1,0 +1,12 @@
+F:\Projects\Repo\Reminder\ReminderLibrary\bin\Debug\ReminderLibrary.dll
+F:\Projects\Repo\Reminder\ReminderLibrary\bin\Debug\ReminderLibrary.pdb
+F:\Projects\Repo\Reminder\ReminderLibrary\bin\Debug\Reminder.exe
+F:\Projects\Repo\Reminder\ReminderLibrary\bin\Debug\Newtonsoft.Json.dll
+F:\Projects\Repo\Reminder\ReminderLibrary\bin\Debug\Reminder.pdb
+F:\Projects\Repo\Reminder\ReminderLibrary\bin\Debug\Reminder.exe.config
+F:\Projects\Repo\Reminder\ReminderLibrary\bin\Debug\Newtonsoft.Json.xml
+F:\Projects\Repo\Reminder\ReminderLibrary\obj\Debug\ReminderLibrary.csproj.AssemblyReference.cache
+F:\Projects\Repo\Reminder\ReminderLibrary\obj\Debug\ReminderLibrary.csproj.CoreCompileInputs.cache
+F:\Projects\Repo\Reminder\ReminderLibrary\obj\Debug\ReminderLibrary.csproj.CopyComplete
+F:\Projects\Repo\Reminder\ReminderLibrary\obj\Debug\ReminderLibrary.dll
+F:\Projects\Repo\Reminder\ReminderLibrary\obj\Debug\ReminderLibrary.pdb

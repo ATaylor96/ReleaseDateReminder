@@ -94,6 +94,26 @@ namespace ReminderUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap outline_apps_white_18dp {
+            get {
+                object obj = ResourceManager.GetObject("outline_apps_white_18dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap outline_apps_white_24dp {
+            get {
+                object obj = ResourceManager.GetObject("outline_apps_white_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap outline_check_box_outline_blank_white_24dp {
             get {
                 object obj = ResourceManager.GetObject("outline_check_box_outline_blank_white_24dp", resourceCulture);
@@ -137,6 +157,16 @@ namespace ReminderUI.Properties {
         internal static System.Drawing.Bitmap outline_close_white_24dp1 {
             get {
                 object obj = ResourceManager.GetObject("outline_close_white_24dp1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap outline_format_list_bulleted_white_24dp {
+            get {
+                object obj = ResourceManager.GetObject("outline_format_list_bulleted_white_24dp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -247,6 +277,26 @@ namespace ReminderUI.Properties {
         internal static System.Drawing.Bitmap outline_movie_black_24dp3 {
             get {
                 object obj = ResourceManager.GetObject("outline_movie_black_24dp3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap outline_navigate_before_white_18dp {
+            get {
+                object obj = ResourceManager.GetObject("outline_navigate_before_white_18dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap outline_navigate_next_white_18dp {
+            get {
+                object obj = ResourceManager.GetObject("outline_navigate_next_white_18dp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

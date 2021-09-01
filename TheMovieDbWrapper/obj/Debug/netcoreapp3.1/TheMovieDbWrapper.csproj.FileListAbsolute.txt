@@ -1,0 +1,8 @@
+F:\Projects\Repo\Reminder\TheMovieDbWrapper\bin\Debug\netcoreapp3.1\TheMovieDbWrapper.deps.json
+F:\Projects\Repo\Reminder\TheMovieDbWrapper\bin\Debug\netcoreapp3.1\TheMovieDbWrapper.dll
+F:\Projects\Repo\Reminder\TheMovieDbWrapper\bin\Debug\netcoreapp3.1\TheMovieDbWrapper.pdb
+F:\Projects\Repo\Reminder\TheMovieDbWrapper\obj\Debug\netcoreapp3.1\TheMovieDbWrapper.AssemblyInfoInputs.cache
+F:\Projects\Repo\Reminder\TheMovieDbWrapper\obj\Debug\netcoreapp3.1\TheMovieDbWrapper.AssemblyInfo.cs
+F:\Projects\Repo\Reminder\TheMovieDbWrapper\obj\Debug\netcoreapp3.1\TheMovieDbWrapper.csproj.CoreCompileInputs.cache
+F:\Projects\Repo\Reminder\TheMovieDbWrapper\obj\Debug\netcoreapp3.1\TheMovieDbWrapper.dll
+F:\Projects\Repo\Reminder\TheMovieDbWrapper\obj\Debug\netcoreapp3.1\TheMovieDbWrapper.pdb

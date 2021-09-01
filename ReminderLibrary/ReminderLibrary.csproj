@@ -48,6 +48,11 @@
     <Compile Include="Models\OMDbTVModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Reminder\Reminder.csproj">
+      <Project>{BE68AD84-DE55-4CF1-85CC-AE9E09A58846}</Project>
+      <Name>Reminder</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

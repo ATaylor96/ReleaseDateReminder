@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReminderLibrary.Models
+namespace Reminder.Classes
 {
     public class OMDbSearchModel
     {

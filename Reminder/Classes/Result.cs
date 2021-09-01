@@ -67,4 +67,9 @@ namespace Reminder.Classes
         public string Value { get; set; }
     }
 
+    public class Game
+    {
+
+    }
+
 }

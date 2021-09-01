@@ -1,0 +1,8 @@
+F:\Projects\Repo\Reminder\OMDbWrapper\bin\Debug\netcoreapp3.1\OMDbWrapper.deps.json
+F:\Projects\Repo\Reminder\OMDbWrapper\bin\Debug\netcoreapp3.1\OMDbWrapper.dll
+F:\Projects\Repo\Reminder\OMDbWrapper\bin\Debug\netcoreapp3.1\OMDbWrapper.pdb
+F:\Projects\Repo\Reminder\OMDbWrapper\obj\Debug\netcoreapp3.1\OMDbWrapper.AssemblyInfoInputs.cache
+F:\Projects\Repo\Reminder\OMDbWrapper\obj\Debug\netcoreapp3.1\OMDbWrapper.AssemblyInfo.cs
+F:\Projects\Repo\Reminder\OMDbWrapper\obj\Debug\netcoreapp3.1\OMDbWrapper.csproj.CoreCompileInputs.cache
+F:\Projects\Repo\Reminder\OMDbWrapper\obj\Debug\netcoreapp3.1\OMDbWrapper.dll
+F:\Projects\Repo\Reminder\OMDbWrapper\obj\Debug\netcoreapp3.1\OMDbWrapper.pdb
