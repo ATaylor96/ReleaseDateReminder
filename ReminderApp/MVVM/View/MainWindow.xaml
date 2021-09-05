@@ -3,14 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ReminderApp.MVVM.View" xmlns:viewmodel="clr-namespace:ReminderApp.MVVM.ViewModel"
+        xmlns:local="clr-namespace:ReminderApp.MVVM.View"
+        xmlns:viewmodel="clr-namespace:ReminderApp.MVVM.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="1200"
+        Title="MainWindow" Height="720" Width="1280"
         WindowStartupLocation="CenterScreen"
-        Background="#1F2731"
+        Background="#1B1C22"
         WindowStyle="None"
         AllowsTransparency="True"
-        ResizeMode="CanResizeWithGrip">
+        ResizeMode="CanResizeWithGrip"
+        MinHeight="720" MinWidth="900">
 
     <Window.DataContext>
         <viewmodel:MainViewModel/>
@@ -18,7 +20,7 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="35"/>
+            <RowDefinition Height="30"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
@@ -29,7 +31,7 @@
 
         <!-- Titlebar -->
         <Border Grid.ColumnSpan="2"
-                Background="#131A20"
+                Background="Transparent"
                 MouseDown="Border_MouseDown">
 
             <Grid HorizontalAlignment="Stretch">
@@ -41,18 +43,19 @@
                 <StackPanel HorizontalAlignment="Right"
                             Orientation="Horizontal">
 
-                    <Button Width="40" Height="30"
-                            Content="🗕"
+                    <Button Width="45" Height="30"
+                            Content="&#xE921;"
+                            FontFamily="{StaticResource Segoe MDL2 Assets}"
                             Background="Transparent"
                             BorderThickness="0"
                             Foreground="#6E777E"
-                            FontWeight="Bold"
                             Margin="0,0,0,3"
                             Click="ButtonMinimize_Click"
                             FontSize="16"/>
 
-                    <Button Width="40" Height="30"
-                            Content = "□"
+                    <Button Width="45" Height="30"
+                            Content = "&#xE922;"
+                            FontFamily="{StaticResource Segoe MDL2 Assets}"
                             Background="Transparent"
                             BorderThickness="0"
                             Foreground="#6E777E"
@@ -60,8 +63,9 @@
                             Click="WindowStateButton_Click"
                             FontSize="16"/>
 
-                    <Button Width="40" Height="30"
-                            Content="✕"
+                    <Button Width="45" Height="30"
+                            Content="&#xE8BB;"
+                            FontFamily="{StaticResource Segoe MDL2 Assets}"
                             Background="Transparent"
                             BorderThickness="0"
                             Foreground="#6E777E"
@@ -73,142 +77,100 @@
         </Border>
 
         <!-- Navigation Bar -->
-        <Grid Background="#131A20"
-              Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
+        <Border Background="#191A1F"
+                BorderBrush="#25262C"
+                BorderThickness="0,0,1,0"
+                Grid.Row="0"
+                Grid.RowSpan="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="65"/>
+                </Grid.RowDefinitions>
 
-            <Label Content="Reminder"
-                   VerticalAlignment="Center"
-                   FontWeight="Normal"
-                   Foreground="White"
-                   FontSize="18"
-                   Margin="8,0,0,0"/>
+                <Label Content="RemindMe"
+                       Grid.RowSpan="2"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Center"
+                       FontWeight="Light"
+                       Foreground="#5b5c60"
+                       FontSize="26"
+                       FontFamily="Bahnschrift"
+                       Margin="0, 35, 0, 0"/>
 
-            <StackPanel Grid.Row="2">
-                <Border Background="#1F2731"
-                        Height="50"
-                        CornerRadius="5"
-                        Margin="6, 2, 6, 2">
-
-                    <StackPanel Orientation="Horizontal"
-                                    Margin="10,0,0,0">
-
-                        <Image Source="/Icons/movie.png"
-                            Width="30" Height="30"/>
-
-                        <Label Content="Movies"
-                               Foreground="White"
-                               VerticalAlignment="Center"
-                               FontWeight="SemiBold"
+                <StackPanel Grid.Row="1">
+                    <TextBlock Text="Browse"
+                               FontFamily="Segoe UI"
                                FontSize="16"
-                               Margin="10,0,0,0"/>
+                               FontWeight="Light"
+                               Foreground="#5b5c60"
+                               Margin="22, 45, 0, 15"/>
 
-                    </StackPanel>
-                </Border>
-                <Border Background="#131A20"
-                        Height="50"
-                        CornerRadius="5"
-                        Margin="6, 2, 6, 2">
+                    <RadioButton Content="Movies"
+                                 Height="45"
+                                 FontSize="16"
+                                 Margin="10,5,10,5"
+                                 Style="{StaticResource MenuButtonTheme}"
+                                 IsChecked="True"/>
 
-                    <StackPanel Orientation="Horizontal"
-                                    Margin="10,0,0,0">
+                    <RadioButton Content="Television"
+                                 Height="45"
+                                 FontSize="16"
+                                 Margin="10,5,10,5"
+                                 Style="{StaticResource MenuButtonTheme}"/>
 
-                        <Image Source="/Icons/tv.png"
-                            Width="30" Height="30"/>
+                    <RadioButton Content="Games"
+                                 Height="45"
+                                 FontSize="16"
+                                 Margin="10,5,10,5"
+                                 Style="{StaticResource MenuButtonTheme}"/>
 
-                        <Label Content="Television"
-                               Foreground="#5F666C"
-                               VerticalAlignment="Center"
-                               FontWeight="SemiBold"
+                    <TextBlock Text="Personal"
+                               FontFamily="Segoe UI"
                                FontSize="16"
-                               Margin="10,0,0,0"/>
+                               FontWeight="Light"
+                               Foreground="#5b5c60"
+                               Margin="22, 40, 0, 15"/>
 
-                    </StackPanel>
-                </Border>
-                <Border Background="#131A20"
-                        Height="50"
-                        CornerRadius="5"
-                        Margin="6, 2, 6, 2">
+                    <RadioButton Content="Saved"
+                                 Height="45"
+                                 FontSize="16"
+                                 Margin="10,5,10,5"
+                                 Style="{StaticResource MenuButtonTheme}"/>
 
-                    <StackPanel Orientation="Horizontal"
-                                    Margin="10,0,0,0">
+                    <RadioButton Content="Reminders"
+                                 Height="45"
+                                 FontSize="16"
+                                 Margin="10,5,10,5"
+                                 Style="{StaticResource MenuButtonTheme}"/>
 
-                        <Image Source="/Icons/games.png"
-                            Width="30" Height="30"/>
+                    <RadioButton Content="Calendar"
+                                 Height="45"
+                                 FontSize="16"
+                                 Margin="10,5,10,5"
+                                 Style="{StaticResource MenuButtonTheme}"/>
 
-                        <Label Content="Games"
-                               Foreground="#5F666C"
-                               VerticalAlignment="Center"
-                               FontWeight="SemiBold"
-                               FontSize="16"
-                               Margin="10,0,0,0"/>
+                    <RadioButton Content="Stats"
+                                 Height="45"
+                                 FontSize="16"
+                                 Margin="10,5,10,5"
+                                 Style="{StaticResource MenuButtonTheme}"/>
 
-                    </StackPanel>
-                </Border>
-                <Border Background="#131A20"
-                        Height="50"
-                        CornerRadius="5"
-                        Margin="6, 2, 6, 2">
+                </StackPanel>
 
-                    <StackPanel Orientation="Horizontal"
-                                    Margin="10,0,0,0">
+                <RadioButton Content="Settings"
+                             Grid.Row="2"
+                             Height="45"
+                             FontSize="16"
+                             Margin="10,5,10,5"
+                             Style="{StaticResource MenuButtonTheme}"/>
+            </Grid>
+        </Border>
 
-                        <Image Source="/Icons/saved.png"
-                            Width="30" Height="30"/>
-
-                        <Label Content="Saved"
-                               Foreground="#5F666C"
-                               VerticalAlignment="Center"
-                               FontWeight="SemiBold"
-                               FontSize="16"
-                               Margin="10,0,0,0"/>
-
-                    </StackPanel>
-                </Border>
-                <Border Background="#131A20"
-                        Height="50"
-                        CornerRadius="5"
-                        Margin="6, 2, 6, 2">
-
-                        <StackPanel Orientation="Horizontal"
-                                    Margin="10,0,0,0">
-
-                            <Image Source="/Icons/calendar.png"
-                            Width="30" Height="30"/>
-
-                            <Label Content="Calendar"
-                               Foreground="#5F666C"
-                               VerticalAlignment="Center"
-                               FontWeight="SemiBold"
-                               FontSize="16"
-                               Margin="10,0,0,0"/>
-
-                        </StackPanel>
-                    </Border>
-                <Border Background="#131A20"
-                        Height="50"
-                        CornerRadius="5"
-                        Margin="6, 2, 6, 2">
-
-                    <StackPanel Orientation="Horizontal"
-                                    Margin="10,0,0,0">
-
-                        <Image Source="/Icons/settings.png"
-                            Width="30" Height="30"/>
-
-                        <Label Content="Settings"
-                               Foreground="#5F666C"
-                               VerticalAlignment="Center"
-                               FontWeight="SemiBold"
-                               FontSize="16"
-                               Margin="10,0,0,0"/>
-
-                    </StackPanel>
-                </Border>
-            </StackPanel>
-        </Grid>
+        <ContentControl Grid.Row="0"
+                        Grid.RowSpan="2"
+                        Grid.Column="1"
+                        Content="{Binding CurrentView}"/>
     </Grid>
 </Window>

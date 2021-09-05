@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 F:\Projects\Repo\Reminder\ReminderApp\App.xaml
-61793129575
+121651239185
 10362581050
-12788282209
+141263085171
 193-1891726104
-MainWindow.xaml;MVVM\View\MainWindow.xaml;Themes\ChatItem.xaml;Themes\ContactCard.xaml;Themes\MessageBox.xaml;Themes\StylishScrollbar.xaml;
+MainWindow.xaml;MVVM\View\MainWindow.xaml;MVVM\View\MoviesView.xaml;Themes\ChatItem.xaml;Themes\Colors.xaml;Themes\ContactCard.xaml;Themes\Fonts.xaml;Themes\MenuButtonTheme.xaml;Themes\MessageBox.xaml;Themes\SearchBoxTheme.xaml;Themes\StylishScrollbar.xaml;Themes\Window.xaml;
 
-False
+True
 

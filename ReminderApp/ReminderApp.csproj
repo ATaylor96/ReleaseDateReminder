@@ -52,4 +52,11 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <Page Update="Themes\SearchBoxTheme.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
 </Project>

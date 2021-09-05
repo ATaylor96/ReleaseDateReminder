@@ -10,6 +10,9 @@
     <Compile Update="MVVM\View\MainWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="MVVM\View\MoviesView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
@@ -18,16 +21,34 @@
     <Page Update="MVVM\View\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="MVVM\View\MoviesView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Themes\ChatItem.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Themes\Colors.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Themes\ContactCard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Themes\Fonts.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Themes\MenuButtonTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Themes\SearchBoxTheme.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Themes\MessageBox.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Themes\StylishScrollbar.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Themes\Window.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
